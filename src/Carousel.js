@@ -6,16 +6,13 @@ const StyledCarouselOverlaySection = styled.div`
     display: inline-block;
     width: 50%;
     height: 100%;
-    background-image: url('${props => props.arrow}');
-    background-repeat: no-repeat;
-    background-size: 10%;
-    background-position: ${props => props.position};
+    background-color: #000;
     opacity: 0;
-    transition: opacity 400ms;
+    transition: opacity 200ms;
     
     &:hover {
         cursor: pointer;
-        opacity: 0.9;
+        opacity: 0.4;
     }
 `
 
@@ -65,19 +62,11 @@ export default class Carousel extends React.Component {
                     <RatioImage x={this.props.x} y={this.props.y} src={this.props.images && this.props.images[this.state.imageInView]} backgroundColor={this.props.backgroundColor}>
                         {
                             this.props.images.length > 1 &&
-                            <StyledCarouselOverlaySection
-                                onClick={this.onClickLeft}
-                                position="left"
-                                arrow="/images/LeftArrow.svg"
-                            />
+                            <StyledCarouselOverlaySection onClick={this.onClickLeft} />
                         }
                         {
                             this.props.images.length > 1 &&
-                            <StyledCarouselOverlaySection
-                                onClick={this.onClickRight}
-                                position="right"
-                                arrow="/images/RightArrow.svg"
-                            />
+                            <StyledCarouselOverlaySection onClick={this.onClickRight} />
                         }
                     </RatioImage>
                 }
