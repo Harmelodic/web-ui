@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Carousel } from "../../src";
+import { Carousel, RatioImage } from "../../src";
 
 const StyledText = styled.div`
     font-size: 20px;
@@ -11,8 +11,21 @@ export default class ComponentViewer extends React.Component {
         let component;
 
         switch (this.props.match.params.id) {
-            case "carousel":
-                component = <Carousel />
+            case "Carousel":
+                component =
+                    <Carousel
+                        x={16}
+                        y={9}
+                        images={["/res/jpg.jpg", "/res/png.png", "/res/svg.svg"]}
+                    />
+                break;
+            case "RatioImage":
+                component =
+                    <RatioImage
+                        x={16}
+                        y={9}
+                        src="/res/jpg.jpg"
+                    />
                 break;
             default:
                 component = <StyledText>Could not find component "{this.props.match.params.id}"</StyledText>

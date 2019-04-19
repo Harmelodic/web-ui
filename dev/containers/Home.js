@@ -12,7 +12,8 @@ export default class Home extends React.Component {
             <StyledHome>
                 <h1>react-ui-lib</h1>
                 <ul>
-                    <li><a href="/carousel">Carousel</a></li>
+                    <li><a href="/Carousel">Carousel</a></li>
+                    <li><a href="/RatioImage">RatioImage</a></li>
                 </ul>
             </StyledHome>
         )
