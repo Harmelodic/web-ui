@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import components from "../../src";
 
 const StyledHome = styled.div`
     padding-left: 20px;
@@ -22,8 +23,9 @@ export default class Home extends React.Component {
             <StyledHome>
                 <h1>react-ui-lib</h1>
                 <ul>
-                    <li><StyledLink href="/Carousel">Carousel</StyledLink></li>
-                    <li><StyledLink href="/RatioImage">RatioImage</StyledLink></li>
+                    {
+                        components.map(component => <li key={component}><StyledLink href={"/" + component}>{component}</StyledLink></li>)
+                    }
                 </ul>
             </StyledHome>
         )
