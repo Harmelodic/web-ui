@@ -14,6 +14,7 @@ const StyledViewer = styled.div`
 
 export default class ComponentViewer extends React.Component {
     render() {
+        document.title = this.props.match.params.id;
         let component;
 
         switch (this.props.match.params.id) {
@@ -28,8 +29,8 @@ export default class ComponentViewer extends React.Component {
             case "RatioImage":
                 component =
                     <RatioImage
-                        x={16}
-                        y={9}
+                        x={4}
+                        y={3}
                         src="/res/jpg.jpg"
                     />
                 break;
