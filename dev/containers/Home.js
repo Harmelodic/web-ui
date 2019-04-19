@@ -3,7 +3,17 @@ import styled from "styled-components";
 
 const StyledHome = styled.div`
     padding-left: 20px;
+    line-height: 32px;
     font-size: 18px;
+    color: #fff;
+`
+
+const StyledLink = styled.a`
+    color: lightblue;
+
+    &:focus, &:active {
+        color: pink;
+    }
 `
 
 export default class Home extends React.Component {
@@ -12,8 +22,8 @@ export default class Home extends React.Component {
             <StyledHome>
                 <h1>react-ui-lib</h1>
                 <ul>
-                    <li><a href="/Carousel">Carousel</a></li>
-                    <li><a href="/RatioImage">RatioImage</a></li>
+                    <li><StyledLink href="/Carousel">Carousel</StyledLink></li>
+                    <li><StyledLink href="/RatioImage">RatioImage</StyledLink></li>
                 </ul>
             </StyledHome>
         )
