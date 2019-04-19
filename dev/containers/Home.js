@@ -1,21 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledText = styled.div`
-    font-size: 20px;
-`
-
-const StyledLink = styled.a`
-    font-size: 20px;
+const StyledHome = styled.div`
+    padding-left: 20px;
+    font-size: 18px;
 `
 
 export default class Home extends React.Component {
     render() {
         return (
-            <div>
-                <StyledText>Home</StyledText>Home
-                <StyledLink href="/something">Something</StyledLink>
-            </div>
+            <StyledHome>
+                <h1>react-ui-lib</h1>
+                <ul>
+                    <li><a href="/carousel">Carousel</a></li>
+                </ul>
+            </StyledHome>
         )
     }
 }

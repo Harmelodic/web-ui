@@ -8,7 +8,7 @@ export default class App extends React.Component {
         return (
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/:id" component={ComponentViewer} />
+                <Route path="/:id" component={ComponentViewer} />
             </Switch>
         )
     }
