@@ -28,7 +28,6 @@ npm-publish:
   image: node:alpine
   stage: deploy
   script:
-#  - npm adduser
   - npm publish --dry-run
   only:
     - master
