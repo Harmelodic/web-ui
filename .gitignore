@@ -1,4 +1,4 @@
-# Package Specific
+# @harmelodic/react-ui-lib
 public/bundle.js
 public/bundle.js.gz
 
@@ -6,5 +6,5 @@ public/bundle.js.gz
 node_modules/
 *.tgz
 
-# MacOS
+# macOS
 .DS_Store
