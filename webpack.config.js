@@ -1,4 +1,4 @@
-const SRC = __dirname + "/dev/";
+const SRC = __dirname + "/demo/";
 const PUBLIC = __dirname + "/public/";
 
 module.exports = {

@@ -24,7 +24,9 @@ export default class Home extends React.Component {
                 <h1>react-ui-lib</h1>
                 <ul>
                     {
-                        components.map(component => <li key={component}><StyledLink href={"/" + component}>{component}</StyledLink></li>)
+                        components
+                            .sort()
+                            .map(component => <li key={component}><StyledLink href={"/" + component}>{component}</StyledLink></li>)
                     }
                 </ul>
             </StyledHome>
