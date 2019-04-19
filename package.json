@@ -35,6 +35,6 @@
     "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.2.1"
   },
-  "main": "webpack.config.js",
+  "main": "src/index.js",
   "dependencies": {}
 }
