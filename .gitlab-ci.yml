@@ -1,0 +1,37 @@
+image: docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay
+
+stages:
+  - test
+  - package
+  - deploy
+
+npm-test:
+  image: node:alpine
+  stage: test
+  script:
+  - npm i
+  - npm test
+
+npm-pack:
+  image: node:alpine
+  stage: package
+  script:
+  - npm i
+  - npm pack
+  artifacts:
+    paths:
+    - *.tgz
+  only:
+    - master
+
+npm-publish:
+  image: node:alpine
+  stage: deploy
+  script:
+#  - npm adduser
+  - npm publish --dry-run
+  only:
+    - master
