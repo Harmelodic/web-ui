@@ -6,6 +6,12 @@ const StyledText = styled.div`
     font-size: 20px;
 `
 
+const StyledViewer = styled.div`
+    width: 50vw;
+    border-right: dashed 1px red;
+    border-bottom: dashed 1px red;
+`
+
 export default class ComponentViewer extends React.Component {
     render() {
         let component;
@@ -32,6 +38,10 @@ export default class ComponentViewer extends React.Component {
                 break;
         }
 
-        return (component)
+        return (
+            <StyledViewer>
+                {component}
+            </StyledViewer>
+        )
     }
 }
