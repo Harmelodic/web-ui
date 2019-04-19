@@ -1,3 +1,10 @@
+# Package Specific
 public/bundle.js
 public/bundle.js.gz
+
+# npm
 node_modules/
+*.tgz
+
+# MacOS
+.DS_Store
