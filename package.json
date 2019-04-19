@@ -36,5 +36,6 @@
     "webpack-merge": "^4.2.1"
   },
   "main": "src/index.js",
+  "files": ["src/*.js"],
   "dependencies": {}
 }
