@@ -1,6 +1,6 @@
 {
   "name": "@harmelodic/react-ui-lib",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A library of React components for consistent composable UI development.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
