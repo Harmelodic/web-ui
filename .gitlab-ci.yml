@@ -8,12 +8,12 @@ stages:
   - package
   - deploy
 
-# npm-test:
-#   image: node:alpine
-#   stage: test
-#   script:
-#   - npm i
-#   - npm test
+npm-test:
+  image: node:alpine
+  stage: test
+  script:
+  - npm i
+  - npm test
 
 npm-pack:
   image: node:alpine
