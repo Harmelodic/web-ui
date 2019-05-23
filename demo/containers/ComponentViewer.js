@@ -1,24 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-import { Carousel, RatioImage } from "../../src";
+import { Carousel, RatioImage, SideMenu } from "../../src";
 
 const StyledText = styled.div`
     font-size: 20px;
 `
 
 const StyledViewer = styled.div`
-    width: 50vw;
+    display: inline-block;
     border-right: dashed 1px red;
     border-bottom: dashed 1px red;
+`
+
+const StyledWrapper = styled.div`
+    width: 50vw;
 `
 
 export default class ComponentViewer extends React.Component {
     render() {
         document.title = this.props.match.params.id;
         let component;
+        let requireWrapper = false;
 
         switch (this.props.match.params.id) {
             case "Carousel":
+                requireWrapper = true;
                 component =
                     <Carousel
                         x={16}
@@ -27,11 +33,17 @@ export default class ComponentViewer extends React.Component {
                     />
                 break;
             case "RatioImage":
+                requireWrapper = true;
                 component =
                     <RatioImage
                         x={4}
                         y={3}
                         src="/res/jpg.jpg"
+                    />
+                break;
+            case "SideMenu":
+                component = 
+                    <SideMenu
                     />
                 break;
             default:
@@ -41,7 +53,13 @@ export default class ComponentViewer extends React.Component {
 
         return (
             <StyledViewer>
-                {component}
+                {
+                    requireWrapper ?
+                        <StyledWrapper>
+                            {component}
+                        </StyledWrapper>
+                    : component
+                }
             </StyledViewer>
         )
     }
