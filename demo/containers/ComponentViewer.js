@@ -44,6 +44,27 @@ export default class ComponentViewer extends React.Component {
             case "SideMenu":
                 component = 
                     <SideMenu
+                        background="#333333"
+                        color="#ffffff"
+                        title="My Menu"
+                        menu={[
+                            {
+                                text: "First Item",
+                                href: "#first-item"
+                            },
+                            {
+                                text: "Second Item",
+                                href: "#second-item"
+                            },
+                            {
+                                separator: true,
+                                size: "10px"
+                            },
+                            {
+                                text: "Third Item",
+                                href: "#third-item"
+                            }
+                        ]}
                     />
                 break;
             default:
