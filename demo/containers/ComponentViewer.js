@@ -42,29 +42,13 @@ export default class ComponentViewer extends React.Component {
                     />
                 break;
             case "SideMenu":
+                let menu = Array.apply(null, {length: 25}).map(Number.call, Number).map(number => {return { text: `Item ${number}`, href: `#something${number}` }});
                 component = 
                     <SideMenu
                         background="#333333"
                         color="#ffffff"
                         title="My Menu"
-                        menu={[
-                            {
-                                text: "First Item",
-                                href: "#first-item"
-                            },
-                            {
-                                text: "Second Item",
-                                href: "#second-item"
-                            },
-                            {
-                                separator: true,
-                                size: "10px"
-                            },
-                            {
-                                text: "Third Item",
-                                href: "#third-item"
-                            }
-                        ]}
+                        menu={menu}
                     />
                 break;
             default:

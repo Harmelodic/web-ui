@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledSideMenu = styled.div`
-    background-color: ${props => props.background ? props.background : "#000000"};
+    position: fixed;
     height: 100vh;
     width: 80%;
     max-width: 300px;
     min-width: 250px;
-    font-size: 0;
+    background-color: ${props => props.background ? props.background : "#000000"};
     color: ${props => props.color ? props.color : "#ffffff"};
+    font-size: 0;
 `
 
 const StyledTitle = styled.div`
@@ -21,6 +22,14 @@ const StyledTitle = styled.div`
     font-size: 24px;
 `
 
+const StyledMenuItemList = styled.div`
+    display: block;
+    width: 100%;
+    height: calc(100% - 150px);
+    padding-bottom: 150px;
+    overflow-y: auto;
+`
+
 const StyledMenuItem = styled.a`
     display: block;
     background: rgba(0, 0, 0, 0);
@@ -30,7 +39,7 @@ const StyledMenuItem = styled.a`
     line-height: 50px;
     font-size: 20px;
     text-decoration: none;
-    color: ${props => props.color ? props.color : "#ffffff"};
+    color: inherit;
     transition: background 400ms;
 
     &:hover {
@@ -48,19 +57,21 @@ export default class SideMenu extends React.Component {
         return (
             <StyledSideMenu background={this.props.background} color={this.props.color}>
                 <StyledTitle>{this.props.title}</StyledTitle>
-                {
-                    this.props.menu
-                        .map(menuItem => {
-                            if (menuItem.separator) {
+                <StyledMenuItemList>
+                    {
+                        this.props.menu
+                            .map(menuItem => {
+                                if (menuItem.separator) {
+                                    return (
+                                        <StyledSeparator size={menuItem.size} />
+                                    )
+                                }
                                 return (
-                                    <StyledSeparator size={menuItem.size} />
+                                    <StyledMenuItem href={menuItem.href}>{menuItem.text}</StyledMenuItem>
                                 )
-                            }
-                            return (
-                                <StyledMenuItem color={this.props.color} href={menuItem.href}>{menuItem.text}</StyledMenuItem>
-                            )
-                        })
-                }
+                            })
+                    }
+                </StyledMenuItemList>
             </StyledSideMenu>
         )
     }
