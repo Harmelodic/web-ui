@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Carousel, RatioImage, SideMenu } from "../../src";
+import { Carousel, RatioImage, SideMenuOverlay } from "../../src";
 
 const StyledViewer = styled.div`
     background: #999999;
@@ -36,10 +36,10 @@ export default class ComponentViewer extends React.Component {
                         src="/res/jpg.jpg"
                     />
                 break;
-            case "SideMenu":
+            case "SideMenuOverlay":
                 let menu = Array.apply(null, { length: 25 }).map(Number.call, Number).map(number => { return { text: `Item ${number}`, href: `#something${number}` } });
                 component =
-                    <SideMenu
+                    <SideMenuOverlay
                         background="#333333"
                         color="#ffffff"
                         title="My Menu"

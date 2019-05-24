@@ -54,7 +54,7 @@ const StyledSeparator = styled.div`
     height: ${props => props.size};
 `
 
-export default class SideMenu extends React.Component {
+export default class SideMenuOverlay extends React.Component {
     render() {
         return (
             <StyledSideMenu background={this.props.background} color={this.props.color}>
