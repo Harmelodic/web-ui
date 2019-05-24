@@ -18,6 +18,17 @@ export default class ComponentViewer extends React.Component {
     render() {
         document.title = this.props.match.params.id;
         let component;
+        let menu = Array
+            .apply(null, { length: 27 })
+            .map(Number.call, Number)
+            .map(number => {
+                if (number === 0 || number % 5 !== 0) {
+                    return  { text: `Item ${number}`, href: `#something${number}`}
+                }
+                else {
+                    return { separator: true, size: "20px" }
+                }
+            });
 
         switch (this.props.match.params.id) {
             case "Carousel":
@@ -37,7 +48,6 @@ export default class ComponentViewer extends React.Component {
                     />
                 break;
             case "SideMenuOverlay":
-                let menu = Array.apply(null, { length: 25 }).map(Number.call, Number).map(number => { return { text: `Item ${number}`, href: `#something${number}` } });
                 component =
                     <SideMenuOverlay
                         background="#333333"

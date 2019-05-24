@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import MenuList from "./components/MenuList";
 
 const StyledSideMenu = styled.div`
     position: fixed;
@@ -24,58 +25,12 @@ const StyledTitle = styled.div`
     overflow-x: auto;
 `
 
-const StyledMenuItemList = styled.div`
-    display: block;
-    width: 100%;
-    height: calc(100% - 210px);
-    padding-bottom: 150px;
-    overflow-y: auto;
-`
-
-const StyledMenuItem = styled.a`
-    display: block;
-    background: rgba(0, 0, 0, 0);
-    width: calc(100% - 20px);
-    height: 50px;
-    padding-left: 20px;
-    line-height: 50px;
-    font-size: 20px;
-    text-decoration: none;
-    color: inherit;
-    transition: background 400ms;
-
-    &:hover {
-        background: rgba(0, 0, 0, 0.3);
-    }
-`
-
-const StyledSeparator = styled.div`
-    width: 100%;
-    height: ${props => props.size};
-`
-
 export default class SideMenuOverlay extends React.Component {
     render() {
         return (
             <StyledSideMenu background={this.props.background} color={this.props.color}>
                 <StyledTitle>{this.props.title}</StyledTitle>
-                <StyledMenuItemList>
-                    {
-                        this.props.menu
-                            .map((menuItem, index) => {
-                                if (menuItem.separator) {
-                                    return (
-                                        <StyledSeparator key={index} size={menuItem.size} />
-                                    )
-                                }
-                                return (
-                                    <StyledMenuItem key={index} href={menuItem.href}>
-                                        {menuItem.text}
-                                    </StyledMenuItem>
-                                )
-                            })
-                    }
-                </StyledMenuItemList>
+                <MenuList menu={this.props.menu} />
             </StyledSideMenu>
         )
     }
