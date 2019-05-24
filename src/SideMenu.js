@@ -25,7 +25,7 @@ const StyledTitle = styled.div`
 const StyledMenuItemList = styled.div`
     display: block;
     width: 100%;
-    height: calc(100% - 150px);
+    height: calc(100% - 210px);
     padding-bottom: 150px;
     overflow-y: auto;
 `
