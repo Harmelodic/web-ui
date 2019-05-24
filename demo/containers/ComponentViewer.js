@@ -2,29 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { Carousel, RatioImage, SideMenu } from "../../src";
 
-const StyledText = styled.div`
-    font-size: 20px;
-`
-
 const StyledViewer = styled.div`
-    display: inline-block;
-    border-right: dashed 1px red;
-    border-bottom: dashed 1px red;
+    background: #999999;
+    width: 50vw;
+    height: 100vh;
 `
 
-const StyledWrapper = styled.div`
-    width: 50vw;
+const StyledText = styled.div`
+    padding: 20px;
+    font-size: 24px;
+    color: #fff;
 `
 
 export default class ComponentViewer extends React.Component {
     render() {
         document.title = this.props.match.params.id;
         let component;
-        let requireWrapper = false;
 
         switch (this.props.match.params.id) {
             case "Carousel":
-                requireWrapper = true;
                 component =
                     <Carousel
                         x={16}
@@ -33,7 +29,6 @@ export default class ComponentViewer extends React.Component {
                     />
                 break;
             case "RatioImage":
-                requireWrapper = true;
                 component =
                     <RatioImage
                         x={4}
@@ -42,8 +37,8 @@ export default class ComponentViewer extends React.Component {
                     />
                 break;
             case "SideMenu":
-                let menu = Array.apply(null, {length: 25}).map(Number.call, Number).map(number => {return { text: `Item ${number}`, href: `#something${number}` }});
-                component = 
+                let menu = Array.apply(null, { length: 25 }).map(Number.call, Number).map(number => { return { text: `Item ${number}`, href: `#something${number}` } });
+                component =
                     <SideMenu
                         background="#333333"
                         color="#ffffff"
@@ -58,13 +53,7 @@ export default class ComponentViewer extends React.Component {
 
         return (
             <StyledViewer>
-                {
-                    requireWrapper ?
-                        <StyledWrapper>
-                            {component}
-                        </StyledWrapper>
-                    : component
-                }
+                {component}
             </StyledViewer>
         )
     }

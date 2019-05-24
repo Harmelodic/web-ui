@@ -8,18 +8,20 @@ const StyledSideMenu = styled.div`
     max-width: 300px;
     min-width: 250px;
     background-color: ${props => props.background ? props.background : "#000000"};
+    box-shadow: 0 0 5px 0 #000000;
     color: ${props => props.color ? props.color : "#ffffff"};
     font-size: 0;
 `
 
 const StyledTitle = styled.div`
     margin-bottom: 5px;
-    width: calc(100% - 20px);
+    width: calc(100% - 40px);
     height: 60px;
     background: rgba(0, 0, 0, 0.2);
-    padding-left: 20px;
+    padding: 0 20px;
     line-height: 60px;
     font-size: 24px;
+    overflow-x: auto;
 `
 
 const StyledMenuItemList = styled.div`
@@ -60,14 +62,16 @@ export default class SideMenu extends React.Component {
                 <StyledMenuItemList>
                     {
                         this.props.menu
-                            .map(menuItem => {
+                            .map((menuItem, index) => {
                                 if (menuItem.separator) {
                                     return (
-                                        <StyledSeparator size={menuItem.size} />
+                                        <StyledSeparator key={index} size={menuItem.size} />
                                     )
                                 }
                                 return (
-                                    <StyledMenuItem href={menuItem.href}>{menuItem.text}</StyledMenuItem>
+                                    <StyledMenuItem key={index} href={menuItem.href}>
+                                        {menuItem.text}
+                                    </StyledMenuItem>
                                 )
                             })
                     }
