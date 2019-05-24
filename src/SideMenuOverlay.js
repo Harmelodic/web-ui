@@ -3,7 +3,6 @@ import styled from "styled-components";
 import MenuList from "./components/MenuList";
 
 const StyledSideMenu = styled.div`
-    position: fixed;
     height: 100vh;
     width: 80%;
     max-width: 300px;
