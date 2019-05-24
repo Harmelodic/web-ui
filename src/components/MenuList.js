@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 const StyledMenuItemList = styled.div`
     display: block;
+    margin-top: 5px;
     width: 100%;
-    height: calc(100% - 210px);
+    height: calc(100% - 215px);
     padding-bottom: 150px;
     overflow-y: auto;
 `
