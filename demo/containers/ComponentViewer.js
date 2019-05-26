@@ -1,21 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import { Carousel, RatioImage } from "../../src";
-
-const StyledText = styled.div`
-    font-size: 20px;
-`
+import { Carousel, RatioImage, SideMenuOverlay } from "../../src";
 
 const StyledViewer = styled.div`
+    background: #999999;
     width: 50vw;
-    border-right: dashed 1px red;
-    border-bottom: dashed 1px red;
+    height: 100vh;
+`
+
+const StyledText = styled.div`
+    padding: 20px;
+    font-size: 24px;
+    color: #fff;
 `
 
 export default class ComponentViewer extends React.Component {
     render() {
         document.title = this.props.match.params.id;
         let component;
+        let menu = Array
+            .apply(null, { length: 27 })
+            .map(Number.call, Number)
+            .map(number => {
+                if (number === 0 || number % 5 !== 0) {
+                    return  { text: `Item ${number}`, href: `#something${number}`}
+                }
+                else {
+                    return { separator: true, size: "20px" }
+                }
+            });
 
         switch (this.props.match.params.id) {
             case "Carousel":
@@ -32,6 +45,15 @@ export default class ComponentViewer extends React.Component {
                         x={4}
                         y={3}
                         src="/res/jpg.jpg"
+                    />
+                break;
+            case "SideMenuOverlay":
+                component =
+                    <SideMenuOverlay
+                        background="#800000"
+                        color="#ffffff"
+                        title="My Menu"
+                        menu={menu}
                     />
                 break;
             default:
