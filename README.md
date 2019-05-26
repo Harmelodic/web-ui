@@ -2,6 +2,18 @@
 
 A library of React components for consistent composable UI development.
 
+##
+
+To view a demo of this application:
+
+```
+$ git clone https://gitlab.com/Harmelodic/react-ui-lib.git
+$ npm i
+$ npm start
+```
+
+Then open a browser to `localhost`, on the webpack-dev-server port (defaulted to `8080`).
+
 ## Contributing / Adding Components
 
 1. Develop a component by creating a React Component in `src/`.
