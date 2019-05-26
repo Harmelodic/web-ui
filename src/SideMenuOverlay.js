@@ -90,6 +90,11 @@ const ControlButton = styled.div`
     box-shadow: ${props => props.open ? "none" : "0 0 5px 0 #000000"};
 `
 
+const BurgerMenu = styled.svg`
+    width: 60px;
+    height: 60px;
+`
+
 export default class SideMenuOverlay extends React.Component {
     constructor(props) {
         super(props);
@@ -122,11 +127,18 @@ export default class SideMenuOverlay extends React.Component {
                 <SideMenuTitle firstLoad={this.state.firstLoad} open={this.state.open}>
                     {this.props.title}
                 </SideMenuTitle>
-                <ControlButton 
+                <ControlButton
                     open={this.state.open}
                     background={this.props.background}
-                    onClick={this.switchCollapsedState} 
-                />
+                    onClick={this.switchCollapsedState}
+                >
+                    <BurgerMenu>
+                        <path
+                            d="m 18,24 h 24 c 1.104,0 2,-0.896 2,-2 0,-1.104 -0.896,-2 -2,-2 H 18 c -1.104,0 -2,0.896 -2,2 0,1.104 0.896,2 2,2 z m 24,4 H 18 c -1.104,0 -2,0.896 -2,2 0,1.104 0.896,2 2,2 h 24 c 1.104,0 2,-0.896 2,-2 0,-1.104 -0.896,-2 -2,-2 z m 0,8 H 18 c -1.104,0 -2,0.896 -2,2 0,1.104 0.896,2 2,2 h 24 c 1.104,0 2,-0.896 2,-2 0,-1.104 -0.896,-2 -2,-2 z"
+                            style={{ fill: this.props.color ? this.props.color : "#000000" }}
+                        />
+                    </BurgerMenu>
+                </ControlButton>
                 <MenuList menu={this.props.menu} onClickMenuItem={this.close} />
             </StyledSideMenu>
         )
