@@ -2,7 +2,7 @@
 
 A library of React components for consistent composable UI development.
 
-##
+## Demo
 
 To view a demo of this application:
 
