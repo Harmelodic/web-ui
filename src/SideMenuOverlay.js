@@ -27,7 +27,7 @@ const StyledSideMenu = styled.div`
         }
     `}
 
-    ${props => !props.open && css`
+    ${props => !props.open && !props.firstLoad && css`
         animation: 200ms closeSideBarOverlay;
 
         @keyframes closeSideBarOverlay {
@@ -66,7 +66,7 @@ const SideMenuTitle = styled.div`
         }
     `}
 
-    ${props => !props.open && css`
+    ${props => !props.open && !props.firstLoad && css`
         animation: 200ms shiftControlButtonOut;
 
         @keyframes shiftControlButtonOut {
@@ -95,7 +95,8 @@ export default class SideMenuOverlay extends React.Component {
         super(props);
 
         this.state = {
-            open: false
+            open: false,
+            firstLoad: true
         }
 
         this.switchCollapsedState = this.switchCollapsedState.bind(this);
@@ -104,7 +105,8 @@ export default class SideMenuOverlay extends React.Component {
 
     switchCollapsedState() {
         this.setState({
-            open: !this.state.open
+            open: !this.state.open,
+            firstLoad: false
         })
     }
 
@@ -116,8 +118,8 @@ export default class SideMenuOverlay extends React.Component {
 
     render() {
         return (
-            <StyledSideMenu open={this.state.open} background={this.props.background} color={this.props.color}>
-                <SideMenuTitle open={this.state.open}>
+            <StyledSideMenu firstLoad={this.state.firstLoad} open={this.state.open} background={this.props.background} color={this.props.color}>
+                <SideMenuTitle firstLoad={this.state.firstLoad} open={this.state.open}>
                     {this.props.title}
                 </SideMenuTitle>
                 <ControlButton 
