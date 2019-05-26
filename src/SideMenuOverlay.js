@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import MenuList from "./components/MenuList";
 
 const StyledSideMenu = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: ${props => props.open ? "0" : "-300px"}
     height: 100vh;

@@ -50,7 +50,7 @@ export default class ComponentViewer extends React.Component {
             case "SideMenuOverlay":
                 component =
                     <SideMenuOverlay
-                        background="#333333"
+                        background="#800000"
                         color="#ffffff"
                         title="My Menu"
                         menu={menu}
