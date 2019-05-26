@@ -45,7 +45,7 @@ export default class MenuList extends React.Component {
                                     )
                                 }
                                 return (
-                                    <StyledMenuItem key={index} href={menuItem.href}>
+                                    <StyledMenuItem key={index} href={menuItem.href} onClick={this.props.onClickMenuItem}>
                                         {menuItem.text}
                                     </StyledMenuItem>
                                 )
