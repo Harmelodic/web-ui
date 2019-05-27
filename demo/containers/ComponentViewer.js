@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Carousel, RatioImage, SideMenuOverlay } from "../../src";
+import { Carousel, RatioImage, SideMenu, SideMenuOverlay } from "../../src";
 
 const StyledViewer = styled.div`
     background: #999999;
@@ -47,6 +47,15 @@ export default class ComponentViewer extends React.Component {
                         src="/res/jpg.jpg"
                     />
                 break;
+                case "SideMenu":
+                    component =
+                        <SideMenu
+                            background="#800000"
+                            color="#ffffff"
+                            title="My Menu"
+                            menu={menu}
+                        />
+                    break;
             case "SideMenuOverlay":
                 component =
                     <SideMenuOverlay
