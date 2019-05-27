@@ -6,7 +6,6 @@ const StyledSideMenu = styled.div`
     width: 300px;
     height: 100vh;
     background-color: ${props => props.background ? props.background : "#000000"};
-    box-shadow: 0 0 5px 0 #000000;
     color: ${props => props.color ? props.color : "#ffffff"};
     font-size: 0;
 `
