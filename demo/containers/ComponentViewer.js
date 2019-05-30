@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Carousel, Markdown, RatioImage, SideMenu, SideMenuOverlay } from "../../src";
+import ToastViewer from "./ToastViewer";
 
 const StyledViewer = styled.div`
     background: #999999;
@@ -17,7 +18,7 @@ const StyledText = styled.div`
 export default class ComponentViewer extends React.Component {
     render() {
         document.title = this.props.match.params.id;
-        let component;
+        let container;
         let menu = Array
             .apply(null, { length: 27 })
             .map(Number.call, Number)
@@ -32,7 +33,7 @@ export default class ComponentViewer extends React.Component {
 
         switch (this.props.match.params.id) {
             case "Carousel":
-                component =
+                container =
                     <Carousel
                         x={16}
                         y={9}
@@ -40,13 +41,13 @@ export default class ComponentViewer extends React.Component {
                     />
                 break;
             case "Markdown":
-                component =
+                container =
                     <Markdown 
                         markdown="# Some Title"
                     />
                 break;
             case "RatioImage":
-                component =
+                container =
                     <RatioImage
                         x={4}
                         y={3}
@@ -54,7 +55,7 @@ export default class ComponentViewer extends React.Component {
                     />
                 break;
                 case "SideMenu":
-                    component =
+                    container =
                         <SideMenu
                             background="#800000"
                             color="#ffffff"
@@ -63,7 +64,7 @@ export default class ComponentViewer extends React.Component {
                         />
                     break;
             case "SideMenuOverlay":
-                component =
+                container =
                     <SideMenuOverlay
                         background="#800000"
                         color="#ffffff"
@@ -71,14 +72,17 @@ export default class ComponentViewer extends React.Component {
                         menu={menu}
                     />
                 break;
+            case "Toast":
+                container = <ToastViewer />
+                break;
             default:
-                component = <StyledText>Could not find component "{this.props.match.params.id}"</StyledText>
+                container = <StyledText>Could not find component "{this.props.match.params.id}"</StyledText>
                 break;
         }
 
         return (
             <StyledViewer>
-                {component}
+                {container}
             </StyledViewer>
         )
     }
