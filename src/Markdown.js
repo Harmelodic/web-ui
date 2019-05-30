@@ -1,6 +1,6 @@
-import React from "react";
-import marked from "marked";
-import styled from "styled-components";
+import React from 'react';
+import marked from 'marked';
+import styled from 'styled-components';
 
 const StyledMarkdown = styled.div`
     display: inline-block;
@@ -8,7 +8,7 @@ const StyledMarkdown = styled.div`
     margin: 0 auto;
     padding: 0 5px;
     font-family: Georgia, Times, serif;
-    font-size: ${props => props.mobileView ? "15px" : "20px"};
+    font-size: ${(props) => props.mobileView ? '15px' : '20px'};
     white-space: normal;
     overflow-wrap: break-word;
     
@@ -21,7 +21,7 @@ const StyledMarkdown = styled.div`
     }
 
     p {
-        line-height: ${props => props.mobileView ? "18px" : "25px"};
+        line-height: ${(props) => props.mobileView ? '18px' : '25px'};
     }
 
     a, a:visited {
@@ -71,39 +71,60 @@ const StyledMarkdown = styled.div`
         color: var(--keyboard-text-color);
         border: 1px solid var(--keyboard-border-color);
         border-radius: var(--blog-border-radius);
-        box-shadow: 0 1px 0 var(--keyboard-outer-boxshadow), 0 0 0 2px var(--keyboard-inner-boxshadow) inset;
+        box-shadow: 0 1px 0 var(--keyboard-outer-boxshadow), 
+                    0 0 0 2px var(--keyboard-inner-boxshadow) inset;
         white-space: nowrap;
     }
-`
+`;
 
+/**
+ * Markdown
+ */
 export default class Markdown extends React.Component {
-    constructor(props) {
-        super(props);
+  /**
+   * @param {*} props
+   */
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            mobileView: window.innerWidth > 900 ? false : true
-        }
-        this.updateMobileViewTracker = this.updateMobileViewTracker.bind(this);
-    }
+    this.state = {
+      mobileView: window.innerWidth > 900 ? false : true,
+    };
+    this.updateMobileViewTracker = this.updateMobileViewTracker.bind(this);
+  }
 
-    componentDidMount() {
-        this.updateMobileViewTracker();
-        window.addEventListener('resize', this.updateMobileViewTracker);
-    }
+  /**
+   * Component Mounted
+   */
+  componentDidMount() {
+    this.updateMobileViewTracker();
+    window.addEventListener('resize', this.updateMobileViewTracker);
+  }
 
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.updateMobileViewTracker);
-    }
+  /**
+   * Component Unmounting
+   */
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateMobileViewTracker);
+  }
 
-    updateMobileViewTracker() {
-        this.setState({
-          mobileView: window.innerWidth > 900 ? false : true
-        });
-    }
+  /**
+   * Update Mobile View Tracker
+   */
+  updateMobileViewTracker() {
+    this.setState({
+      mobileView: window.innerWidth > 900 ? false : true,
+    });
+  }
 
-    render() {
-        return (
-            <StyledMarkdown mobileView={this.state.mobileView} dangerouslySetInnerHTML={{ __html: marked(this.props.markdown) }} />
-        )
-    }
+  /**
+   * @return {HTMLElement} Markdown
+   */
+  render() {
+    return (
+      <StyledMarkdown
+        mobileView={this.state.mobileView}
+        dangerouslySetInnerHTML={{__html: marked(this.props.markdown)}} />
+    );
+  }
 }

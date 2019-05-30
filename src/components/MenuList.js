@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledMenuItemList = styled.div`
     display: block;
@@ -8,7 +8,7 @@ const StyledMenuItemList = styled.div`
     height: calc(100% - 215px);
     padding-bottom: 150px;
     overflow-y: auto;
-`
+`;
 
 const StyledMenuItem = styled.a`
     display: block;
@@ -25,33 +25,44 @@ const StyledMenuItem = styled.a`
     &:hover {
         background: rgba(0, 0, 0, 0.3);
     }
-`
+`;
 
 const StyledSeparator = styled.div`
     width: 100%;
-    height: ${props => props.size};
-`
+    height: ${(props) => props.size};
+`;
 
+
+/**
+ * MenuList
+ */
 export default class MenuList extends React.Component {
-    render() {
-        return (
-            <StyledMenuItemList>
-                    {
-                        this.props.menu
-                            .map((menuItem, index) => {
-                                if (menuItem.separator) {
-                                    return (
-                                        <StyledSeparator key={index} size={menuItem.size} />
-                                    )
-                                }
-                                return (
-                                    <StyledMenuItem key={index} href={menuItem.href} onClick={this.props.onClickMenuItem}>
-                                        {menuItem.text}
-                                    </StyledMenuItem>
-                                )
-                            })
-                    }
-                </StyledMenuItemList>
-        )
-    }
+  /**
+   * @return {HTMLElement} MenuList
+   */
+  render() {
+    return (
+      <StyledMenuItemList>
+        {
+          this.props.menu
+              .map((menuItem, index) => {
+                if (menuItem.separator) {
+                  return (
+                    <StyledSeparator key={index} size={menuItem.size} />
+                  );
+                }
+                return (
+                  <StyledMenuItem
+                    key={index}
+                    href={menuItem.href}
+                    onClick={this.props.onClickMenuItem}
+                  >
+                    {menuItem.text}
+                  </StyledMenuItem>
+                );
+              })
+        }
+      </StyledMenuItemList>
+    );
+  }
 }

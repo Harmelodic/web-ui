@@ -3,6 +3,8 @@
   "version": "2.1.0",
   "description": "A library of React components for consistent composable UI development.",
   "scripts": {
+    "eslint": "eslint src/* --fix",
+    "precommit": "npm run eslint",
     "test": "echo \"Error: no test specified\" && exit 0",
     "start": "webpack-dev-server --inline --history-api-fallback --content-base ./public/ --hot --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
@@ -26,6 +28,9 @@
     "@babel/core": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.13.0",
+    "eslint-plugin-react": "^7.13.0",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "webpack": "^4.30.0",
