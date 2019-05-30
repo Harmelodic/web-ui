@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Carousel, RatioImage, SideMenu, SideMenuOverlay } from "../../src";
+import { Carousel, Markdown, RatioImage, SideMenu, SideMenuOverlay } from "../../src";
 
 const StyledViewer = styled.div`
     background: #999999;
@@ -37,6 +37,12 @@ export default class ComponentViewer extends React.Component {
                         x={16}
                         y={9}
                         images={["/res/jpg.jpg", "/res/png.png", "/res/svg.svg"]}
+                    />
+                break;
+            case "Markdown":
+                component =
+                    <Markdown 
+                        markdown="# Some Title"
                     />
                 break;
             case "RatioImage":
