@@ -3,7 +3,7 @@
   "version": "2.1.1",
   "description": "A library of React components for consistent composable UI development.",
   "scripts": {
-    "eslint": "eslint src/* --fix",
+    "lint": "eslint src/* --fix",
     "test": "echo \"Error: no test specified\" && exit 0",
     "start": "webpack-dev-server --inline --history-api-fallback --content-base ./public/ --hot --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
