@@ -4,7 +4,6 @@
   "description": "A library of React components for consistent composable UI development.",
   "scripts": {
     "eslint": "eslint src/* --fix",
-    "precommit": "npm run eslint",
     "test": "echo \"Error: no test specified\" && exit 0",
     "start": "webpack-dev-server --inline --history-api-fallback --content-base ./public/ --hot --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
