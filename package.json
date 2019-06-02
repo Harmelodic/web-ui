@@ -5,8 +5,8 @@
   "scripts": {
     "lint": "eslint src/* --fix",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "webpack-dev-server --inline --history-api-fallback --content-base ./public/ --hot --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "start": "webpack-dev-server --inline --history-api-fallback --content-base ./public/ --hot --config webpack.config.js",
+    "build": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,9 @@
   },
   "homepage": "https://gitlab.com/Harmelodic/react-ui-lib#readme",
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "eslint": "^5.16.0",
