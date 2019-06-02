@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Toast } from "../../src";
+import React from 'react';
+import styled from 'styled-components';
+import {Toast} from '../../src';
 
 const SendToast = styled.div`
   font-size: 32px;
@@ -15,20 +15,33 @@ const SendToast = styled.div`
   &:active {
     color: darkred;
   }
-`
+`;
 
+/**
+ * ToastViewer
+ */
 export default class ToastViewer extends React.Component {
+  /**
+   * @return {HTMLElement} ToastViewer
+   */
   render() {
     return (
       <div>
-        <SendToast onClick={() => Toast.sendToast("Example Toast")}>Send Example Toast</SendToast>
-        <SendToast onClick={() => Toast.sendToast("Example Toast 2sdfjlaskjdfhlaksjdhflakjsdhlkjdsahl")}>Send Example Toast 2</SendToast>
+        <SendToast onClick={() => Toast.sendToast('Example Toast')}>
+          Send Example Toast
+        </SendToast>
+        <SendToast
+          // eslint-disable-next-line max-len
+          onClick={() => Toast.sendToast('Example Toast 2sdfjlaskjdfhlaksjdhflakjsdhlkjdsahl')}
+        >
+          Send Example Toast 2
+        </SendToast>
         <Toast
           background="white"
           messageColor="green"
           closeColor="red"
         />
       </div>
-    )
+    );
   }
 }
