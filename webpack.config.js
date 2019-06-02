@@ -1,7 +1,4 @@
-const SRC = __dirname + '/demo/';
-
 module.exports = {
-  entry: SRC + 'index.js',
   module: {
     rules: [
       {
