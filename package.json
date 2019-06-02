@@ -41,7 +41,7 @@
   },
   "main": "dist/index.js",
   "files": [
-    "dist/*.js"
+    "dist/*"
   ],
   "dependencies": {
     "marked": "^0.6.2",
