@@ -39,7 +39,7 @@
   },
   "main": "src/index.js",
   "files": [
-    "src/*.js"
+    "dist/*.js"
   ],
   "dependencies": {
     "marked": "^0.6.2",

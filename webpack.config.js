@@ -1,12 +1,7 @@
 const SRC = __dirname + '/demo/';
-const PUBLIC = __dirname + '/public/';
 
 module.exports = {
   entry: SRC + 'index.js',
-  output: {
-    path: PUBLIC,
-    filename: 'bundle.js',
-  },
   module: {
     rules: [
       {
@@ -20,8 +15,5 @@ module.exports = {
         },
       },
     ],
-  },
-  externals: {
-    'react': 'commonjs react',
   },
 };

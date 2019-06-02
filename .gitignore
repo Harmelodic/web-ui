@@ -1,6 +1,7 @@
 # @harmelodic/react-ui-lib
 public/bundle.js
 public/bundle.js.gz
+dist/
 
 # npm
 node_modules/
