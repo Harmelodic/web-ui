@@ -7,6 +7,6 @@ module.exports = merge(config, {
   mode: 'production',
   output: {
     path: PUBLIC,
-    filename: 'bundle.js',
+    filename: 'index.js',
   },
 });
