@@ -8,7 +8,7 @@ const StyledMarkdown = styled.div`
     margin: 0 auto;
     padding: 0 5px;
     font-family: Georgia, Times, serif;
-    font-size: ${(props) => props.mobileView ? '15px' : '20px'};
+    font-size: 16px;
     white-space: normal;
     overflow-wrap: break-word;
     
