@@ -6,7 +6,9 @@
     "lint": "eslint src/* --fix",
     "test": "echo \"Error: no test specified\" && exit 0",
     "start": "webpack-dev-server --inline --history-api-fallback --content-base ./public/ --hot --config webpack.config.js",
-    "build": "babel src --out-dir dist"
+    "build": "babel src --out-dir dist",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -44,8 +46,10 @@
     "dist/*"
   ],
   "dependencies": {
-    "marked": "^0.6.3",
+    "marked": "^0.7.0",
     "react": "^16.8.6",
-    "styled-components": "^4.3.2"
-  }
+    "styled-components": "^4.3.2",
+    "snyk": "^1.192.6"
+  },
+  "snyk": true
 }
