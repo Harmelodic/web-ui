@@ -27,8 +27,8 @@
   "homepage": "https://gitlab.com/Harmelodic/react-ui-lib#readme",
   "devDependencies": {
     "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.0",
-    "@babel/preset-env": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "eslint": "^6.0.1",
@@ -36,7 +36,7 @@
     "eslint-plugin-react": "^7.14.2",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "webpack": "^4.35.2",
+    "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2",
     "webpack-merge": "^4.2.1"
