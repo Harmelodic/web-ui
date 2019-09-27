@@ -7,17 +7,26 @@ const StyledMarkdown = styled.div`
     width: calc(100% - 10px);
     margin: 0 auto;
     padding: 0 5px;
-    font-family: Georgia, Times, serif;
+    font-family:
+      ${(props) =>
+        props.bodyFontFamily ?
+        props.bodyFontFamily :
+        'Georgia, Times, serif'};
     font-size: 16px;
     white-space: normal;
     overflow-wrap: break-word;
+    color: ${(props) => props.bodyColor ? props.bodyColor : '#333'}
     
     & > h1, & > h2, & > h3 {
         padding-bottom: 3px;
         border-bottom: solid 1px #999;
         font-weight: 400;
-        font-family: "Ubuntu", Arial, Helvetica, sans-serif;
-        color: #496bbf;
+        font-family: 
+          ${(props) =>
+            props.headerFontFamily ?
+            props.headerFontFamily :
+            'Helvetica, sans-serif'};
+        color: ${(props) => props.headerColor ? props.headerColor : '#496bbf'}
     }
 
     p {
@@ -123,6 +132,10 @@ export default class Markdown extends React.Component {
   render() {
     return (
       <StyledMarkdown
+        headerFontFamily={this.props.headerFontFamily}
+        bodyFontFamily={this.props.bodyFontFamily}
+        headerColor={this.props.headerColor}
+        bodyColor={this.props.bodyColor}
         mobileView={this.state.mobileView}
         dangerouslySetInnerHTML={{__html: marked(this.props.markdown)}} />
     );

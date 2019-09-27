@@ -60,6 +60,8 @@ export default class ComponentViewer extends React.Component {
         container =
           <Markdown
             markdown="# Some Title"
+            headerFontFamily="Courier"
+            headerColor="#aa0000"
           />;
         break;
       case 'RatioImage':
