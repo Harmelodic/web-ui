@@ -84,6 +84,16 @@ const StyledMarkdown = styled.div`
                     0 0 0 2px var(--keyboard-inner-boxshadow) inset;
         white-space: nowrap;
     }
+
+    table {
+       margin: 0 auto;
+       border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 1px solid black;
+        padding: 10px;
+    }
 `;
 
 /**
