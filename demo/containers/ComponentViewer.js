@@ -10,7 +10,7 @@ import {
 import ToastViewer from './ToastViewer';
 
 const StyledViewer = styled.div`
-    background: #999999;
+    background: #fff;
     width: 50vw;
     min-height: 100vh;
 `;

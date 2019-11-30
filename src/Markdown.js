@@ -91,7 +91,7 @@ const StyledMarkdown = styled.div`
     }
 
     table, td, th {
-        border: 1px solid black;
+        border: 1px solid #cccccc;
         padding: 10px;
     }
 `;
