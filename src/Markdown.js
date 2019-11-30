@@ -88,6 +88,11 @@ const StyledMarkdown = styled.div`
     table {
        margin: 0 auto;
        border-collapse: collapse;
+       font-family: 
+        ${(props) =>
+          props.headerFontFamily ?
+          props.headerFontFamily :
+          'Helvetica, sans-serif'};
     }
 
     table, td, th {
