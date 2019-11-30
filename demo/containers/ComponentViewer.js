@@ -12,7 +12,7 @@ import ToastViewer from './ToastViewer';
 const StyledViewer = styled.div`
     background: #999999;
     width: 50vw;
-    height: 100vh;
+    min-height: 100vh;
 `;
 
 const StyledText = styled.div`
@@ -25,6 +25,29 @@ const StyledText = styled.div`
  * ComponentViewer
  */
 export default class ComponentViewer extends React.Component {
+  /**
+   * @param {*} props
+   */
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      exampleMarkdown: '',
+    };
+  }
+
+  /**
+   * componentDidMount
+   */
+  componentDidMount() {
+    fetch('/res/exampleMarkdown.md')
+        .then((response) => response.text().then((data) => {
+          this.setState({
+            exampleMarkdown: data,
+          });
+        }));
+  }
+
   /**
    * @return {HTMLElement} ComponentViewer
    */
@@ -59,8 +82,8 @@ export default class ComponentViewer extends React.Component {
       case 'Markdown':
         container =
           <Markdown
-            markdown="# Some Title"
-            headerFontFamily="Courier"
+            markdown={this.state.exampleMarkdown}
+            headerFontFamily="Helvetica"
             headerColor="#aa0000"
           />;
         break;
