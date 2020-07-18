@@ -85,6 +85,7 @@ export default class ComponentViewer extends React.Component {
             markdown={this.state.exampleMarkdown}
             headerFontFamily="Helvetica"
             headerColor="#aa0000"
+            aTagAttributes='target="_blank" rel="nofollow"'
           />;
         break;
       case 'RatioImage':

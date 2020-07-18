@@ -145,6 +145,17 @@ export default class Markdown extends React.Component {
    * @return {HTMLElement} Markdown
    */
   render() {
+    const aTagAttributes =
+      this.props.aTagAttributes ? this.props.aTagAttributes : '';
+
+    const renderer = new marked.Renderer();
+    const linkRenderer = renderer.link;
+
+    renderer.link = (href, title, text) => {
+      const html = linkRenderer.call(renderer, href, title, text);
+      return html.replace(/^<a /, `<a ${aTagAttributes} `);
+    };
+
     return (
       <StyledMarkdown
         headerFontFamily={this.props.headerFontFamily}
@@ -152,7 +163,9 @@ export default class Markdown extends React.Component {
         headerColor={this.props.headerColor}
         bodyColor={this.props.bodyColor}
         mobileView={this.state.mobileView}
-        dangerouslySetInnerHTML={{__html: marked(this.props.markdown)}} />
+        dangerouslySetInnerHTML={{
+          __html: marked(this.props.markdown, {renderer}),
+        }} />
     );
   }
 }
