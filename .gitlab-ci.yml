@@ -23,11 +23,3 @@ npm-pack:
   - npm pack
   only:
     - master
-
-npm-publish:
-  image: node:alpine
-  stage: deploy
-  script:
-  - npm publish --dry-run
-  only:
-    - master
