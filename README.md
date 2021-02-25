@@ -25,6 +25,7 @@ Then open a browser to `localhost`, on the webpack-dev-server port (defaulted to
 
 ```
 $ npm version <major|minor|patch>
+$ npm run build
 $ npm publish
 $ git push
 ```
