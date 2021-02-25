@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import marked from 'marked';
 import styled from 'styled-components';
 
@@ -8,29 +8,29 @@ const StyledMarkdown = styled.div`
     margin: 0 auto;
     padding: 0 5px;
     font-family:
-      ${(props) =>
+      ${props =>
         props.bodyFontFamily ?
         props.bodyFontFamily :
         'Georgia, Times, serif'};
     font-size: 16px;
     white-space: normal;
     overflow-wrap: break-word;
-    color: ${(props) => props.bodyColor ? props.bodyColor : '#333'}
+    color: ${props => props.bodyColor ? props.bodyColor : '#333'}
     
     & > h1, & > h2, & > h3 {
         padding-bottom: 3px;
         border-bottom: solid 1px #999;
         font-weight: 400;
         font-family: 
-          ${(props) =>
+          ${props =>
             props.headerFontFamily ?
             props.headerFontFamily :
             'Helvetica, sans-serif'};
-        color: ${(props) => props.headerColor ? props.headerColor : '#496bbf'}
+        color: ${props => props.headerColor ? props.headerColor : '#496bbf'}
     }
 
     p {
-        line-height: ${(props) => props.mobileView ? '18px' : '25px'};
+        line-height: ${props => props.mobileView ? '18px' : '25px'};
     }
 
     a, a:visited {
@@ -89,7 +89,7 @@ const StyledMarkdown = styled.div`
        margin: 0 auto;
        border-collapse: collapse;
        font-family: 
-        ${(props) =>
+        ${props =>
           props.headerFontFamily ?
           props.headerFontFamily :
           'Helvetica, sans-serif'};
@@ -103,69 +103,44 @@ const StyledMarkdown = styled.div`
 
 /**
  * Markdown
+ * @param {*} props
+ * @return {HTMLElement} Markdown
  */
-export default class Markdown extends React.Component {
-  /**
-   * @param {*} props
-   */
-  constructor(props) {
-    super(props);
+export default function Markdown(props) {
+  const [mobileView, setMobileView] = useState(window.innerWidth > 900 ? false : true);
 
-    this.state = {
-      mobileView: window.innerWidth > 900 ? false : true,
+  function updateMobileViewTracker() {
+    setMobileView(window.innerWidth > 900 ? false : true);
+  }
+
+  useEffect(() => {
+    updateMobileViewTracker();
+    window.addEventListener('resize', updateMobileViewTracker);
+
+    return function cleanup() {
+      window.removeEventListener('resize', updateMobileViewTracker);
     };
-    this.updateMobileViewTracker = this.updateMobileViewTracker.bind(this);
-  }
+  }, []);
 
-  /**
-   * Component Mounted
-   */
-  componentDidMount() {
-    this.updateMobileViewTracker();
-    window.addEventListener('resize', this.updateMobileViewTracker);
-  }
+  const aTagAttributes = props.aTagAttributes ? props.aTagAttributes : '';
 
-  /**
-   * Component Unmounting
-   */
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateMobileViewTracker);
-  }
+  const renderer = new marked.Renderer();
+  const linkRenderer = renderer.link;
 
-  /**
-   * Update Mobile View Tracker
-   */
-  updateMobileViewTracker() {
-    this.setState({
-      mobileView: window.innerWidth > 900 ? false : true,
-    });
-  }
+  renderer.link = (href, title, text) => {
+    const html = linkRenderer.call(renderer, href, title, text);
+    return html.replace(/^<a /, `<a ${aTagAttributes} `);
+  };
 
-  /**
-   * @return {HTMLElement} Markdown
-   */
-  render() {
-    const aTagAttributes =
-      this.props.aTagAttributes ? this.props.aTagAttributes : '';
-
-    const renderer = new marked.Renderer();
-    const linkRenderer = renderer.link;
-
-    renderer.link = (href, title, text) => {
-      const html = linkRenderer.call(renderer, href, title, text);
-      return html.replace(/^<a /, `<a ${aTagAttributes} `);
-    };
-
-    return (
-      <StyledMarkdown
-        headerFontFamily={this.props.headerFontFamily}
-        bodyFontFamily={this.props.bodyFontFamily}
-        headerColor={this.props.headerColor}
-        bodyColor={this.props.bodyColor}
-        mobileView={this.state.mobileView}
-        dangerouslySetInnerHTML={{
-          __html: marked(this.props.markdown, {renderer}),
-        }} />
-    );
-  }
+  return (
+    <StyledMarkdown
+      headerFontFamily={props.headerFontFamily}
+      bodyFontFamily={props.bodyFontFamily}
+      headerColor={props.headerColor}
+      bodyColor={props.bodyColor}
+      mobileView={mobileView}
+      dangerouslySetInnerHTML={{
+        __html: marked(props.markdown, { renderer }),
+      }} />
+  );
 }

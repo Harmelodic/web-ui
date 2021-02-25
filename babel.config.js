@@ -1,5 +1,7 @@
 const presets = [
-  '@babel/preset-react',
+  ['@babel/preset-react', {
+    'runtime': 'automatic',
+  }],
   [
     '@babel/env',
     {
@@ -13,4 +15,4 @@ const presets = [
   ],
 ];
 
-module.exports = {presets};
+module.exports = { presets };

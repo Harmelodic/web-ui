@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import RatioImage from './RatioImage';
 
@@ -15,81 +15,63 @@ const StyledCarouselOverlaySection = styled.div`
         opacity: 0.4;
     }
 `;
+
 /**
  * Carousel
+ * @param {any} props - React component props - Required: images, x and y
+ * @return {HTMLElement} Carousel
  */
-export default class Carousel extends React.Component {
-  /**
-   * @param {*} props
-   */
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      imageInView: 0,
-    };
-
-    this.onClickLeft = this.onClickLeft.bind(this);
-    this.onClickRight = this.onClickRight.bind(this);
-  }
+export default function Carousel(props) {
+  const [imageInView, setImageInView] = useState(0);
 
   /**
    * Go to previous picture
    */
-  onClickLeft() {
+  function onClickLeft() {
     let indexOfImageToMoveTo;
-    if (this.state.imageInView === 0) {
-      indexOfImageToMoveTo = this.props.images.length - 1;
+    if (imageInView === 0) {
+      indexOfImageToMoveTo = props.images.length - 1;
     } else {
-      indexOfImageToMoveTo = this.state.imageInView - 1;
+      indexOfImageToMoveTo = imageInView - 1;
     }
-    this.setState({
-      imageInView: indexOfImageToMoveTo,
-    });
+    setImageInView(indexOfImageToMoveTo);
   }
 
   /**
    * Go to next picture
    */
-  onClickRight() {
+  function onClickRight() {
     let indexOfImageToMoveTo;
-    if (this.state.imageInView === (this.props.images.length - 1)) {
+    if (imageInView === (props.images.length - 1)) {
       indexOfImageToMoveTo = 0;
     } else {
-      indexOfImageToMoveTo = this.state.imageInView + 1;
+      indexOfImageToMoveTo = imageInView + 1;
     }
-    this.setState({
-      imageInView: indexOfImageToMoveTo,
-    });
+    setImageInView(indexOfImageToMoveTo);
   }
 
-  /**
-   * @return {HTMLElement} Carousel
-   */
-  render() {
-    return (
-      <div>
-        {
-          this.props.images && this.props.images.length > 0 &&
-                    <RatioImage
-                      x={this.props.x}
-                      y={this.props.y}
-                      src={this.props.images &&
-                        this.props.images[this.state.imageInView]}
-                      backgroundColor={this.props.backgroundColor}>
-                      {
-                        this.props.images.length > 1 &&
-                            <StyledCarouselOverlaySection
-                              onClick={this.onClickLeft} />
-                      }
-                      {
-                        this.props.images.length > 1 &&
-                            <StyledCarouselOverlaySection
-                              onClick={this.onClickRight} />
-                      }
-                    </RatioImage>
-        }
-      </div>
-    );
-  }
+  return (
+    <div>
+      {
+        props.images && props.images.length > 0 &&
+                  <RatioImage
+                    x={props.x}
+                    y={props.y}
+                    src={props.images &&
+                      props.images[imageInView]}
+                    backgroundColor={props.backgroundColor}>
+                    {
+                      props.images.length > 1 &&
+                          <StyledCarouselOverlaySection
+                            onClick={onClickLeft} />
+                    }
+                    {
+                      props.images.length > 1 &&
+                          <StyledCarouselOverlaySection
+                            onClick={onClickRight} />
+                    }
+                  </RatioImage>
+      }
+    </div>
+  );
 }

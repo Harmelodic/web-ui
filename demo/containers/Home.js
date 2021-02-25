@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import components from '../../src';
 
@@ -19,27 +18,25 @@ const StyledLink = styled.a`
 
 /**
  * Home
+ * @return {HTMLElement} Home
  */
-export default class Home extends React.Component {
-  /**
-   * @return {HTMLElement} Home
-   */
-  render() {
-    return (
-      <StyledHome>
-        <h1>react-ui-lib</h1>
-        <ul>
-          {
-            components
-                .sort()
-                .map((component) =>
+export default function Home() {
+  return (
+    <StyledHome>
+      <h1>react-ui-lib</h1>
+      <ul>
+        {
+          components
+              .sort()
+              .map((component) => {
+                return (
                   <li key={component}>
                     <StyledLink href={'/' + component}>{component}</StyledLink>
                   </li>
-                )
-          }
-        </ul>
-      </StyledHome>
-    );
-  }
+                );
+              })
+        }
+      </ul>
+    </StyledHome>
+  );
 }

@@ -20,7 +20,9 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: [
-            '@babel/preset-react',
+            ['@babel/preset-react', {
+              'runtime': 'automatic',
+            }],
           ],
         },
       },

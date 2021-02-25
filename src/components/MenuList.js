@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const StyledMenuItemList = styled.div`
@@ -29,40 +28,37 @@ const StyledMenuItem = styled.a`
 
 const StyledSeparator = styled.div`
     width: 100%;
-    height: ${(props) => props.size};
+    height: ${props => props.size};
 `;
 
 
 /**
  * MenuList
+ * @param {any} props - React component props
+ * @return {HTMLElement} MenuList
  */
-export default class MenuList extends React.Component {
-  /**
-   * @return {HTMLElement} MenuList
-   */
-  render() {
-    return (
-      <StyledMenuItemList>
-        {
-          this.props.menu
-              .map((menuItem, index) => {
-                if (menuItem.separator) {
-                  return (
-                    <StyledSeparator key={index} size={menuItem.size} />
-                  );
-                }
+export default function MenuList(props) {
+  return (
+    <StyledMenuItemList>
+      {
+        props.menu
+            .map((menuItem, index) => {
+              if (menuItem.separator) {
                 return (
-                  <StyledMenuItem
-                    key={index}
-                    href={menuItem.href}
-                    onClick={this.props.onClickMenuItem}
-                  >
-                    {menuItem.text}
-                  </StyledMenuItem>
+                  <StyledSeparator key={index} size={menuItem.size} />
                 );
-              })
-        }
-      </StyledMenuItemList>
-    );
-  }
+              }
+              return (
+                <StyledMenuItem
+                  key={index}
+                  href={menuItem.href}
+                  onClick={props.onClickMenuItem}
+                >
+                  {menuItem.text}
+                </StyledMenuItem>
+              );
+            })
+      }
+    </StyledMenuItemList>
+  );
 }

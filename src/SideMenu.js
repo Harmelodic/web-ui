@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import MenuList from './components/MenuList';
 
@@ -6,8 +5,8 @@ const StyledSideMenu = styled.div`
     width: 300px;
     height: 100vh;
     background-color:
-      ${(props) => props.background ? props.background : '#000000'};
-    color: ${(props) => props.color ? props.color : '#ffffff'};
+      ${props => props.background ? props.background : '#000000'};
+    color: ${props => props.color ? props.color : '#ffffff'};
     font-size: 0;
 `;
 
@@ -24,20 +23,18 @@ const SideMenuTitle = styled.div`
 
 /**
  * SideMenu
+ * @param {*} props - React component props
+ * Required: background, color, title and menu
+ * @return {HTMLElement} SideMenu
  */
-export default class SideMenu extends React.Component {
-  /**
-   * @return {HTMLElement} SideMenu
-   */
-  render() {
-    return (
-      <StyledSideMenu
-        background={this.props.background}
-        color={this.props.color}
-      >
-        <SideMenuTitle>{this.props.title}</SideMenuTitle>
-        <MenuList menu={this.props.menu} />
-      </StyledSideMenu>
-    );
-  }
+export default function SideMenu(props) {
+  return (
+    <StyledSideMenu
+      background={props.background}
+      color={props.color}
+    >
+      <SideMenuTitle>{props.title}</SideMenuTitle>
+      <MenuList menu={props.menu} />
+    </StyledSideMenu>
+  );
 }

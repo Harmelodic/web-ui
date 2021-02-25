@@ -17,7 +17,7 @@ const StyledToast = styled.div`
   height: 60px;
   max-width: 300px;
   width: calc(100vw - 40px);
-  background: ${(props) => props.background ? props.background : '#333'};
+  background: ${props => props.background ? props.background : '#333'};
   animation: complete-fade-out 4s;
 
   @keyframes complete-fade-out {
@@ -42,7 +42,7 @@ const ToastMessage = styled.div`
   margin: 0 20px;
   font-size: 20px;
   line-height: 60px;
-  color: ${(props) => props.color ? props.color : '#fff'};
+  color: ${props => props.color ? props.color : '#fff'};
   overflow-x: auto;
   user-select: none;
 `;
@@ -72,7 +72,7 @@ const CloseToastSymbol = styled.svg`
   width: 100%;
   height: 100%;
   & > path {
-    fill: ${(props) => props.color ? props.color: '#fff'};
+    fill: ${props => props.color ? props.color: '#fff'};
   }
 `;
 
@@ -137,7 +137,7 @@ export default class Toast extends React.Component {
    * Scroll to the bottom of the Toast Stack
    */
   scrollToBottom() {
-    this.toast.scrollIntoView({behavior: 'smooth'});
+    this.toast.scrollIntoView({ behavior: 'smooth' });
   }
 
   /**
@@ -159,12 +159,14 @@ export default class Toast extends React.Component {
    * @param {*} text
    */
   static sendToast(text) {
-    window.dispatchEvent(new CustomEvent('CREATE_TOAST', {detail: {
-      toast: {
-        message: text,
-        timestamp: (new Date()).getUTCMilliseconds(),
+    window.dispatchEvent(new CustomEvent('CREATE_TOAST', {
+      detail: {
+        toast: {
+          message: text,
+          timestamp: (new Date()).getUTCMilliseconds(),
+        },
       },
-    }}));
+    }));
   }
 
   /**
