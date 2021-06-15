@@ -6,10 +6,10 @@ export { default as SideMenuOverlay } from './SideMenuOverlay';
 export { default as Toast } from './Toast';
 
 export default [
-  'Carousel',
-  'Markdown',
-  'RatioImage',
-  'SideMenu',
-  'SideMenuOverlay',
-  'Toast',
+	'Carousel',
+	'Markdown',
+	'RatioImage',
+	'SideMenu',
+	'SideMenuOverlay',
+	'Toast',
 ];

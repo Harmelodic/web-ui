@@ -104,42 +104,42 @@ const BurgerMenu = styled.svg`
  * @return {HTMLElement} SideMenuOverlay
  */
 export default function SideMenuOverlay(props) {
-  const [open, setOpen] = useState(false);
-  const [firstLoad, setFirstLoad] = useState(true);
+	const [open, setOpen] = useState(false);
+	const [firstLoad, setFirstLoad] = useState(true);
 
-  function switchCollapsedState() {
-    setOpen(!open);
-    setFirstLoad(false);
-  }
+	function switchCollapsedState() {
+		setOpen(!open);
+		setFirstLoad(false);
+	}
 
-  function close() {
-    setOpen(false);
-  }
+	function close() {
+		setOpen(false);
+	}
 
-  return (
-    <StyledSideMenu
-      firstLoad={firstLoad}
-      open={open}
-      background={props.background}
-      color={props.color}
-    >
-      <SideMenuTitle firstLoad={firstLoad} open={open}>
-        {props.title}
-      </SideMenuTitle>
-      <ControlButton
-        open={open}
-        background={props.background}
-        onClick={switchCollapsedState}
-      >
-        <BurgerMenu>
-          <path
-            // eslint-disable-next-line max-len
-            d="m 18,24 h 24 c 1.104,0 2,-0.896 2,-2 0,-1.104 -0.896,-2 -2,-2 H 18 c -1.104,0 -2,0.896 -2,2 0,1.104 0.896,2 2,2 z m 24,4 H 18 c -1.104,0 -2,0.896 -2,2 0,1.104 0.896,2 2,2 h 24 c 1.104,0 2,-0.896 2,-2 0,-1.104 -0.896,-2 -2,-2 z m 0,8 H 18 c -1.104,0 -2,0.896 -2,2 0,1.104 0.896,2 2,2 h 24 c 1.104,0 2,-0.896 2,-2 0,-1.104 -0.896,-2 -2,-2 z"
-            style={{ fill: props.color ? props.color : '#000000' }}
-          />
-        </BurgerMenu>
-      </ControlButton>
-      <MenuList menu={props.menu} onClickMenuItem={close} />
-    </StyledSideMenu>
-  );
+	return (
+		<StyledSideMenu
+			firstLoad={firstLoad}
+			open={open}
+			background={props.background}
+			color={props.color}
+		>
+			<SideMenuTitle firstLoad={firstLoad} open={open}>
+				{props.title}
+			</SideMenuTitle>
+			<ControlButton
+				open={open}
+				background={props.background}
+				onClick={switchCollapsedState}
+			>
+				<BurgerMenu>
+					<path
+						// eslint-disable-next-line max-len
+						d="m 18,24 h 24 c 1.104,0 2,-0.896 2,-2 0,-1.104 -0.896,-2 -2,-2 H 18 c -1.104,0 -2,0.896 -2,2 0,1.104 0.896,2 2,2 z m 24,4 H 18 c -1.104,0 -2,0.896 -2,2 0,1.104 0.896,2 2,2 h 24 c 1.104,0 2,-0.896 2,-2 0,-1.104 -0.896,-2 -2,-2 z m 0,8 H 18 c -1.104,0 -2,0.896 -2,2 0,1.104 0.896,2 2,2 h 24 c 1.104,0 2,-0.896 2,-2 0,-1.104 -0.896,-2 -2,-2 z"
+						style={{ fill: props.color ? props.color : '#000000' }}
+					/>
+				</BurgerMenu>
+			</ControlButton>
+			<MenuList menu={props.menu} onClickMenuItem={close} />
+		</StyledSideMenu>
+	);
 }

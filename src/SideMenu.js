@@ -28,13 +28,13 @@ const SideMenuTitle = styled.div`
  * @return {HTMLElement} SideMenu
  */
 export default function SideMenu(props) {
-  return (
-    <StyledSideMenu
-      background={props.background}
-      color={props.color}
-    >
-      <SideMenuTitle>{props.title}</SideMenuTitle>
-      <MenuList menu={props.menu} />
-    </StyledSideMenu>
-  );
+	return (
+		<StyledSideMenu
+			background={props.background}
+			color={props.color}
+		>
+			<SideMenuTitle>{props.title}</SideMenuTitle>
+			<MenuList menu={props.menu} />
+		</StyledSideMenu>
+	);
 }

@@ -45,16 +45,16 @@ const StyledOverlay = styled.div`
  * @return {HTMLElement} RatioImage
  */
 export default function RatioImage(props) {
-  return (
-    <StyledRatioWrapper
-      ratioPercent={(100 / parseInt(props.x)) * parseInt(props.y)}
-      backgroundColor={props.backgroundColor || '#000'}>
-      <StyledRatioInnerWrapper>
-        <StyledContainedImage src={props.src} />
-        <StyledOverlay>
-          {props.children}
-        </StyledOverlay>
-      </StyledRatioInnerWrapper>
-    </StyledRatioWrapper>
-  );
+	return (
+		<StyledRatioWrapper
+			ratioPercent={(100 / parseInt(props.x)) * parseInt(props.y)}
+			backgroundColor={props.backgroundColor || '#000'}>
+			<StyledRatioInnerWrapper>
+				<StyledContainedImage src={props.src} />
+				<StyledOverlay>
+					{props.children}
+				</StyledOverlay>
+			</StyledRatioInnerWrapper>
+		</StyledRatioWrapper>
+	);
 }

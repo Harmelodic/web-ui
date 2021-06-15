@@ -38,27 +38,27 @@ const StyledSeparator = styled.div`
  * @return {HTMLElement} MenuList
  */
 export default function MenuList(props) {
-  return (
-    <StyledMenuItemList>
-      {
-        props.menu
-            .map((menuItem, index) => {
-              if (menuItem.separator) {
-                return (
-                  <StyledSeparator key={index} size={menuItem.size} />
-                );
-              }
-              return (
-                <StyledMenuItem
-                  key={index}
-                  href={menuItem.href}
-                  onClick={props.onClickMenuItem}
-                >
-                  {menuItem.text}
-                </StyledMenuItem>
-              );
-            })
-      }
-    </StyledMenuItemList>
-  );
+	return (
+		<StyledMenuItemList>
+			{
+				props.menu
+					.map((menuItem, index) => {
+						if (menuItem.separator) {
+							return (
+								<StyledSeparator key={index} size={menuItem.size} />
+							);
+						}
+						return (
+							<StyledMenuItem
+								key={index}
+								href={menuItem.href}
+								onClick={props.onClickMenuItem}
+							>
+								{menuItem.text}
+							</StyledMenuItem>
+						);
+					})
+			}
+		</StyledMenuItemList>
+	);
 }

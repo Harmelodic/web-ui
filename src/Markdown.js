@@ -9,9 +9,9 @@ const StyledMarkdown = styled.div`
     padding: 0 5px;
     font-family:
       ${props =>
-        props.bodyFontFamily ?
-        props.bodyFontFamily :
-        'Georgia, Times, serif'};
+		props.bodyFontFamily ?
+			props.bodyFontFamily :
+			'Georgia, Times, serif'};
     font-size: 16px;
     white-space: normal;
     overflow-wrap: break-word;
@@ -23,9 +23,9 @@ const StyledMarkdown = styled.div`
         font-weight: 400;
         font-family: 
           ${props =>
-            props.headerFontFamily ?
-            props.headerFontFamily :
-            'Helvetica, sans-serif'};
+		props.headerFontFamily ?
+			props.headerFontFamily :
+			'Helvetica, sans-serif'};
         color: ${props => props.headerColor ? props.headerColor : '#496bbf'}
     }
 
@@ -90,9 +90,9 @@ const StyledMarkdown = styled.div`
        border-collapse: collapse;
        font-family: 
         ${props =>
-          props.headerFontFamily ?
-          props.headerFontFamily :
-          'Helvetica, sans-serif'};
+		props.headerFontFamily ?
+			props.headerFontFamily :
+			'Helvetica, sans-serif'};
     }
 
     table, td, th {
@@ -107,40 +107,40 @@ const StyledMarkdown = styled.div`
  * @return {HTMLElement} Markdown
  */
 export default function Markdown(props) {
-  const [mobileView, setMobileView] = useState(window.innerWidth > 900 ? false : true);
+	const [mobileView, setMobileView] = useState(window.innerWidth > 900 ? false : true);
 
-  function updateMobileViewTracker() {
-    setMobileView(window.innerWidth > 900 ? false : true);
-  }
+	function updateMobileViewTracker() {
+		setMobileView(window.innerWidth > 900 ? false : true);
+	}
 
-  useEffect(() => {
-    updateMobileViewTracker();
-    window.addEventListener('resize', updateMobileViewTracker);
+	useEffect(() => {
+		updateMobileViewTracker();
+		window.addEventListener('resize', updateMobileViewTracker);
 
-    return function cleanup() {
-      window.removeEventListener('resize', updateMobileViewTracker);
-    };
-  }, []);
+		return function cleanup() {
+			window.removeEventListener('resize', updateMobileViewTracker);
+		};
+	}, []);
 
-  const aTagAttributes = props.aTagAttributes ? props.aTagAttributes : '';
+	const aTagAttributes = props.aTagAttributes ? props.aTagAttributes : '';
 
-  const renderer = new marked.Renderer();
-  const linkRenderer = renderer.link;
+	const renderer = new marked.Renderer();
+	const linkRenderer = renderer.link;
 
-  renderer.link = (href, title, text) => {
-    const html = linkRenderer.call(renderer, href, title, text);
-    return html.replace(/^<a /, `<a ${aTagAttributes} `);
-  };
+	renderer.link = (href, title, text) => {
+		const html = linkRenderer.call(renderer, href, title, text);
+		return html.replace(/^<a /, `<a ${aTagAttributes} `);
+	};
 
-  return (
-    <StyledMarkdown
-      headerFontFamily={props.headerFontFamily}
-      bodyFontFamily={props.bodyFontFamily}
-      headerColor={props.headerColor}
-      bodyColor={props.bodyColor}
-      mobileView={mobileView}
-      dangerouslySetInnerHTML={{
-        __html: marked(props.markdown, { renderer }),
-      }} />
-  );
+	return (
+		<StyledMarkdown
+			headerFontFamily={props.headerFontFamily}
+			bodyFontFamily={props.bodyFontFamily}
+			headerColor={props.headerColor}
+			bodyColor={props.bodyColor}
+			mobileView={mobileView}
+			dangerouslySetInnerHTML={{
+				__html: marked(props.markdown, { renderer }),
+			}} />
+	);
 }

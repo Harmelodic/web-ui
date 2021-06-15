@@ -13,22 +13,26 @@ parserOptions:
   allowImportExportEverywhere: true
 plugins:
   - react
-rules: {
-  arrow-parens: [2, "as-needed", {
-    "requireForBlockBody": true
-  }],
-  max-len: [2, {
-    "code": 100
-  }],
-  object-curly-spacing: [2, "always"],
-  react/jsx-uses-vars: ["error"],
-  require-jsdoc: ["error", {
-    "require": {
-      "FunctionDeclaration": false,
-      "MethodDefinition": false,
-      "ClassDeclaration": false,
-      "ArrowFunctionExpression": false,
-      "FunctionExpression": false
-    }}
-  ]
-}
+rules:
+  {
+    arrow-parens: [2, "as-needed", { "requireForBlockBody": true }],
+    indent: ["error", "tab", { "SwitchCase": 1 }],
+    max-len: [2, { "code": 100 }],
+    no-tabs: ["error", { allowIndentationTabs: true }],
+    object-curly-spacing: [2, "always"],
+    react/jsx-uses-vars: ["error"],
+    require-jsdoc:
+      [
+        "error",
+        {
+          "require":
+            {
+              "FunctionDeclaration": false,
+              "MethodDefinition": false,
+              "ClassDeclaration": false,
+              "ArrowFunctionExpression": false,
+              "FunctionExpression": false,
+            },
+        },
+      ],
+  }
