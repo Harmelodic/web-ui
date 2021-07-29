@@ -20,6 +20,7 @@ npm-pack:
   stage: package
   script:
   - npm i
+  - npm run build
   - npm pack
   only:
     - master
