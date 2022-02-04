@@ -7,7 +7,7 @@ A library of React components for consistent composable UI development.
 To view a demo of this application:
 
 ```
-$ git clone https://gitlab.com/Harmelodic/react-ui-lib.git
+$ git clone https://github.com/Harmelodic/react-ui-lib.git
 $ npm i
 $ npm start
 ```

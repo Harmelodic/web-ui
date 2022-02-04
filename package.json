@@ -12,7 +12,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://gitlab.com/Harmelodic/react-ui-lib.git"
+		"url": "git+https://github.com/Harmelodic/react-ui-lib.git"
 	},
 	"keywords": [
 		"react",
@@ -22,9 +22,9 @@
 	"author": "Harmelodic",
 	"license": "GPL-3.0",
 	"bugs": {
-		"url": "https://gitlab.com/Harmelodic/react-ui-lib/issues"
+		"url": "https://github.com/Harmelodic/react-ui-lib/issues"
 	},
-	"homepage": "https://gitlab.com/Harmelodic/react-ui-lib#readme",
+	"homepage": "https://github.com/Harmelodic/react-ui-lib#readme",
 	"devDependencies": {
 		"@babel/cli": "^7.13.0",
 		"@babel/core": "^7.13.1",
