@@ -19,7 +19,8 @@ jobs:
       - run: npm i
       - run: npm test
       - run: npm run build
+      - run: npm pack
 
-# Then Bump Version
-# Then Pack
-# Then Publish
+# Then bump version
+# Then re-pack
+# Then publish
