@@ -33,7 +33,7 @@
 		"babel-loader": "8.2.5",
 		"eslint": "8.15.0",
 		"eslint-config-google": "0.14.0",
-		"eslint-plugin-react": "7.29.4",
+		"eslint-plugin-react": "7.30.0",
 		"react-dom": "18.1.0",
 		"react-router-dom": "6.3.0",
 		"webpack": "5.72.1",
