@@ -24,3 +24,10 @@ $ npm run build
 $ npm publish
 $ git push
 ```
+
+# TODO
+
+- Automating the publishing with GitHub Actions.
+- Live docs on the web (probably https://harmelodic.github.io/react-ui-lib).
+- Document design principles.
+- Build more components for quicker UI development of new projects.
