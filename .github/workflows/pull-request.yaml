@@ -1,8 +1,5 @@
-name: CI
+name: pull-request
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -20,7 +17,3 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm pack
-
-# Then bump version
-# Then re-pack
-# Then publish
