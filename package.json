@@ -1,5 +1,5 @@
 {
-	"name": "@harmelodic/react-ui-lib",
+	"name": "@harmelodic/web-ui",
 	"version": "3.4.8",
 	"description": "A library of React components for consistent composable UI development.",
 	"scripts": {
@@ -10,7 +10,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Harmelodic/react-ui-lib.git"
+		"url": "git+https://github.com/Harmelodic/web-ui.git"
 	},
 	"keywords": [
 		"react",
@@ -20,9 +20,9 @@
 	"author": "Harmelodic",
 	"license": "GPL-3.0",
 	"bugs": {
-		"url": "https://github.com/Harmelodic/react-ui-lib/issues"
+		"url": "https://github.com/Harmelodic/web-ui/issues"
 	},
-	"homepage": "https://github.com/Harmelodic/react-ui-lib#readme",
+	"homepage": "https://github.com/Harmelodic/web-ui#readme",
 	"devDependencies": {
 		"@babel/cli": "7.19.3",
 		"@babel/core": "7.19.3",

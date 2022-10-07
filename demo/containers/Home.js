@@ -23,7 +23,7 @@ const StyledLink = styled.a`
 export default function Home() {
 	return (
 		<StyledHome>
-			<h1>react-ui-lib</h1>
+			<h1>web-ui</h1>
 			<ul>
 				{
 					components
