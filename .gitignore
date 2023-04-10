@@ -1,0 +1,12 @@
+# @harmelodic/web-ui
+public/bundle.js
+public/bundle.js.gz
+dist/
+
+# npm
+node_modules/
+*.tgz
+package/
+
+# macOS
+.DS_Store
