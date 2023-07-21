@@ -46,6 +46,6 @@
 	"dependencies": {
 		"marked": "5.1.1",
 		"react": "18.2.0",
-		"styled-components": "6.0.4"
+		"styled-components": "6.0.5"
 	}
 }
