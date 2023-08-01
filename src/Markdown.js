@@ -107,10 +107,10 @@ const StyledMarkdown = styled.div`
  * @return {HTMLElement} Markdown
  */
 export default function Markdown(props) {
-	const [mobileView, setMobileView] = useState(window.innerWidth > 900 ? false : true);
+	const [mobileView, setMobileView] = useState(window.innerWidth <= 900);
 
 	function updateMobileViewTracker() {
-		setMobileView(window.innerWidth > 900 ? false : true);
+		setMobileView(window.innerWidth <= 900);
 	}
 
 	useEffect(() => {
