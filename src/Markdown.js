@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import marked from 'marked';
+import { marked } from 'marked';
 import styled from 'styled-components';
 
 const StyledMarkdown = styled.div`
@@ -15,7 +15,7 @@ const StyledMarkdown = styled.div`
     font-size: 16px;
     white-space: normal;
     overflow-wrap: break-word;
-    color: ${props => props.bodyColor ? props.bodyColor : '#333'}
+    color: ${props => props.bodyColor ? props.bodyColor : '#333'};
     
     & > h1, & > h2, & > h3 {
         padding-bottom: 3px;

@@ -7,10 +7,10 @@ Mainly for use on my (Harmelodic) projects, but if you like my style/theming the
 ## Publishing npm package
 
 ```shell
-npm ci 
+npm clean-install
 npm version <major|minor|patch>
 npm run build
-npm publish
+npm publish --access public
 git push
 ```
 
