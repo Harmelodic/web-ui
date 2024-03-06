@@ -44,7 +44,7 @@
 		"dist/*"
 	],
 	"dependencies": {
-		"marked": "12.0.0",
+		"marked": "12.0.1",
 		"react": "18.2.0",
 		"styled-components": "6.1.8"
 	}
